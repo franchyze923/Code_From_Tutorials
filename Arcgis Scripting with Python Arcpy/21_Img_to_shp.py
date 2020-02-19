@@ -101,18 +101,3 @@ for image in img_contents:
 
 print(shp_list)
 shape_creator()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
