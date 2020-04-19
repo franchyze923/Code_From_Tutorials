@@ -1,0 +1,11 @@
+#map { 
+    
+    height: 800px; 
+    width: 800px;
+    display: inline-block;
+}
+
+body{
+
+    text-align: center;
+}
