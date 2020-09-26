@@ -1,0 +1,31 @@
+NOTES
+
+
+sudo amazon-linux-extras install python3
+sudo pip3 install pillow -t .
+sudo pip3 install psycopg2-binary -t .
+sudo pip3 install boto3 -t .
+zip -r squash.zip fran_python_lib
+
+RDS/PostGRES
+
+1) Create Table in PostGRES
+
+https://www.postgresqltutorial.com/postgresql-create-table/
+
+CREATE TABLE youtube_demo (
+	id serial PRIMARY KEY,
+	name VARCHAR ( 50 )  NOT NULL,
+	lat VARCHAR ( 50 )  NOT NULL,
+	long VARCHAR ( 50 ) NOT NULL,
+	image_date VARCHAR ( 300 ) NOT NULL);
+	
+2) Enable PostGIS. Follow steps in the guide below
+
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.PostGIS
+
+3) Add Geometry column
+
+ALTER TABLE youtube_demo ADD COLUMN geom geometry(Point, 4326);
+
+
