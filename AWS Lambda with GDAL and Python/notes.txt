@@ -12,3 +12,5 @@ GDAL_DATA=/opt/share/gdal
 PROJ_LIB=/opt/share/proj
 
 https://pcjericks.github.io/py-gdalogr-cookbook/raster_layers.html
+
+Dont forget to add bucket policy to s3 bucket
