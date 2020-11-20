@@ -1,0 +1,58 @@
+NOTES for videos 1-9               
+
+FREE DATA IN S3
+
+https://registry.opendata.aws/
+https://registry.opendata.aws/nj-imagery/
+
+Install AWS CLI https://aws.amazon.com/cli/, once that is installed access data via 
+
+aws s3 ls s3://njogis-imagery/ --no-sign-request
+
+bucket: njogis-imagery
+
+key: /2015/cog/L9C9.tif
+
+Examples of s3 image paths (use this notation to access imagery in ArcGIS Pro):
+
+/vsis3/njogis-imagery/2015/cog/L9C9.tif
+/vsis3/njogis-imagery/2015/cog/L5C4.tif
+/vsis3/njogis-imagery/2015/cog/L6A3.tif
+/vsis3/njogis-imagery/2015/cog/L5B2.tif
+/vsis3/njogis-imagery/2015/cog/L5A6.tif
+/vsis3/njogis-imagery/2015/cog/L6A10.tif
+/vsis3/njogis-imagery/2015/cog/L6A6.tif
+/vsis3/njogis-imagery/2015/cog/L5A5.tif
+
+
+ArcPy command copied from Pro:
+
+with arcpy.EnvManager(scratchWorkspace=r"C:\Users\Fran\Documents\ArcGIS\Projects\MyProject11\MyProject11.gdb", workspace=r"C:\Users\Fran\Documents\ArcGIS\Projects\MyProject11\MyProject11.gdb"):
+    arcpy.management.AddRastersToMosaicDataset(r"E:\Youtube_Videos\New File Geodatabase.gdb\youtube_test_mosaic_dataset", "Raster Dataset", "/vsis3/njogis-imagery/2015/cog/L6A6.tif", "UPDATE_CELL_SIZES", "UPDATE_BOUNDARY", "NO_OVERVIEWS", None, 0, 1500, None, '', "SUBFOLDERS", "ALLOW_DUPLICATES", "NO_PYRAMIDS", "NO_STATISTICS", "NO_THUMBNAILS", '', "NO_FORCE_SPATIAL_REFERENCE", "NO_STATISTICS", None, "NO_PIXEL_CACHE", r"C:\Users\Fran\AppData\Local\ESRI\rasterproxies\youtube_test_mosaic_dataset")
+	
+	
+	
+Python Command Prompt RUN AS ADMIN
+
+conda env list
+conda create --name youtube_clone --clone arcgispro-py3
+conda list
+conda install -c anaconda boto3
+
+https://anaconda.org/anaconda/boto3
+
+https://stackoverflow.com/questions/30249069/listing-contents-of-a-bucket-with-boto3
+https://stackoverflow.com/questions/34865927/can-i-use-boto3-anonymously
+https://stackoverflow.com/questions/35803027/retrieving-subfolders-names-in-s3-bucket-from-boto3
+
+list objects in s3 bucket with boto3 
+
+import boto3
+s3 = boto3.resource('s3')
+
+my_bucket = s3.Bucket('bucket_name')
+
+for file in my_bucket.objects.all():
+    print(file.key)
+	
+GOOD LUCK!! Comment on youtube if you have questions! 
