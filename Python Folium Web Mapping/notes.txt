@@ -1,0 +1,4 @@
+https://python-visualization.github.io/folium/
+https://leafletjs.com/
+https://restcountries.eu/#api-endpoints-all
+https://realpython.com/python-requests/
