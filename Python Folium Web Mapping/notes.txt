@@ -2,3 +2,17 @@ https://python-visualization.github.io/folium/
 https://leafletjs.com/
 https://restcountries.eu/#api-endpoints-all
 https://realpython.com/python-requests/
+
+notes from videos 7-9
+
+where to download geojson and shapefile used in video - 
+https://eric.clst.org/tech/usgeojson/
+
+esri map server - 
+https://server.arcgisonline.com/arcgis/rest/services/
+
+shapefile to geojson command - 
+https://shallowsky.com/blog/mapping/folium-with-shapefiles.html
+
+gdal anaconda 
+https://anaconda.org/conda-forge/gdal
