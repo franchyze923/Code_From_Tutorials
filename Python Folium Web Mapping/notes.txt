@@ -8,6 +8,10 @@ notes from videos 7-9
 where to download geojson and shapefile used in video - 
 https://eric.clst.org/tech/usgeojson/
 
+leaflet basemaps providers -
+
+https://leaflet-extras.github.io/leaflet-providers/preview/
+
 esri map server - 
 https://server.arcgisonline.com/arcgis/rest/services/
 
