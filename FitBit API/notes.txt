@@ -1,0 +1,17 @@
+FitBit API Info 11/30/2020
+
+https://dev.fitbit.com/build/reference/web-api/oauth2/#authorization-page
+We are using the Implicit Grant Flow. In order to do this, the app must be registered as personal or client. 
+
+First make this request in a browser - 
+https://www.fitbit.com/oauth2/authorize?response_type=token&client_id=22942C&redirect_uri=https%3A%2F%2Fexample.com%2Ffitbit_auth&scope=activity%20nutrition%20heartrate%20location%20nutrition%20profile%20settings%20sleep%20social%20weight&expires_in=604800
+Remember to fill in client_id with your client_id. Also increase time limit (in seconds) if you'd like it to last longer.
+86400 for 1 day
+604800 for 1 week
+2592000 for 30 days
+31536000 for 1 year
+
+Allow all in the browser and then copy the access_token value from the response URL in the browser. 
+
+Store the access token in a variable in Python and use it to make requests to the Fitbit API. 
+
