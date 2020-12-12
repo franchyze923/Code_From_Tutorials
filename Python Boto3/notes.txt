@@ -1,0 +1,8 @@
+Here are some of the posts I used in the video - 
+Any questions please leave a comment!
+
+https://stackoverflow.com/questions/30249069/listing-contents-of-a-bucket-with-boto3
+https://stackoverflow.com/questions/36209068/boto3-grabbing-only-selected-objects-from-the-s3-resource
+https://stackoverflow.com/questions/29378763/how-to-save-s3-object-to-a-file-using-boto3
+https://stackoverflow.com/questions/3207219/how-do-i-list-all-files-of-a-directory
+https://stackoverflow.com/questions/20429246/how-to-write-to-txt-files-in-python-3
