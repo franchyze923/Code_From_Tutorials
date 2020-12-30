@@ -61,6 +61,7 @@ python3 library_gps.py
 Links/Guides I used -  
 
 https://maker.pro/raspberry-pi/tutorial/how-to-read-gps-data-with-python-on-a-raspberry-pi (sample scripts available at bottom of article)
+https://github.com/Knio/pynmea2
 https://ozzmaker.com/berrygps-setup-guide-raspberry-pi/
 https://docs.novatel.com/oem7/Content/Logs/GPRMC.htm?tocpath=Commands%20%2526%20Logs%7CLogs%7CAll%20Logs%7CGNSS%20Logs%7C_____65
 https://gist.github.com/wolfg1969/4653340
