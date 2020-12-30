@@ -1,3 +1,5 @@
+## I got this code from https://maker.pro/raspberry-pi/tutorial/how-to-read-gps-data-with-python-on-a-raspberry-pi
+
 from gps import *
 import time
 
