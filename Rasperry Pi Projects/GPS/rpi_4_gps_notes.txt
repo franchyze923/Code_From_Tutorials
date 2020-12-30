@@ -59,7 +59,7 @@ pip3 install gps
 python3 library_gps.py
 
 Links/Guides I used -  
-
+https://www.raspberrypi.org/software/
 https://maker.pro/raspberry-pi/tutorial/how-to-read-gps-data-with-python-on-a-raspberry-pi (sample scripts available at bottom of article)
 https://github.com/Knio/pynmea2
 https://ozzmaker.com/berrygps-setup-guide-raspberry-pi/
