@@ -54,7 +54,7 @@ https://linuxize.com/post/how-to-use-scp-command-to-securely-transfer-files/
 sample scp -
 scp file.txt remote_username@10.10.0.2:/remote/directory
 
-use this to print in real time gps with python and "gps" module. Similar to cgps
+Use this to print in real time gps with python and "gps" module. Similar to cgps
 pip3 install gps
 python3 library_gps.py
 
