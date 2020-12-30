@@ -1,0 +1,55 @@
+Raspberry Pi GPS NOTES
+
+1) INSTALL FRESH RASPBIAN
+2) ENABLE SSH
+
+https://www.raspberrypi.org/documentation/remote-access/ssh/
+enable it by putting a file called ssh on the sd card before putting it in the PI
+
+3) Plug in USB GPS and find it
+
+lsusb
+Bus 001 Device 006: ID 067b:2303 Prolific Technology, Inc. PL2303 Serial Port
+
+dmesg | grep tty
+
+4) install GPSD and clients
+
+sudo apt update
+sudo apt upgrade
+sudo apt install gpsd gpsd-clients
+
+https://stackoverflow.com/questions/50435295/read-from-file-and-write-to-another-python/50435495
+
+cgps 
+not working...
+
+need to edit config file then restart gpsd service
+
+sudo nano /etc/default/gpsd
+DEVICES=/dev/ttyUSB0
+sudo service gpsd restart
+sudo service gpsd status
+
+now its working,
+
+cgps
+now write to log file 
+
+gpspipe -r -o output.txt
+gpspipe -r -n 10 -o output10.txt
+https://gpsd.gitlab.io/gpsd/gpspipe.html
+
+install pip so we can install other packages
+sudo apt-get install python3-pip
+
+use this to parse a log file and generate a new one
+pip3 install pynmea2
+use this to print in real time gps with pyhton. Similar to cgps
+pip3 install gps
+
+python3
+import pynmea2
+msg = pynmea2.parse("$GPGGA,184353.07,1929.045,S,02410.506,E,1,04,2.6,100.00,M,-33.9,M,,0000*6D")
+msg
+
