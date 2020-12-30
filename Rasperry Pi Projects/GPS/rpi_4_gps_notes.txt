@@ -1,10 +1,9 @@
 Raspberry Pi GPS NOTES
 
-1) INSTALL FRESH RASPBIAN
-2) ENABLE SSH
+1) INSTALL FRESH RASPBIAN ==> Download Raspberry Pi Imager and write Raspbian Lite to sd card. 
+2) ENABLE SSH ==> Enable it by putting a file called ssh on the sd card before putting it in the PI
 
 https://www.raspberrypi.org/documentation/remote-access/ssh/
-enable it by putting a file called ssh on the sd card before putting it in the PI
 
 3) Plug in USB GPS and find it
 
@@ -19,10 +18,8 @@ sudo apt update
 sudo apt upgrade
 sudo apt install gpsd gpsd-clients
 
-https://stackoverflow.com/questions/50435295/read-from-file-and-write-to-another-python/50435495
-
 cgps 
-not working...
+not working...No output from GPS receiver..
 
 need to edit config file then restart gpsd service
 
@@ -31,12 +28,12 @@ DEVICES=/dev/ttyUSB0
 sudo service gpsd restart
 sudo service gpsd status
 
-now its working,
-
 cgps
+now its working..
 now write to log file 
 
 gpspipe -r -o output.txt
+the -n 10 will print 10 lines then exit. Chnage to larger number if you want more gps data logged. 
 gpspipe -r -n 10 -o output10.txt
 https://gpsd.gitlab.io/gpsd/gpspipe.html
 
@@ -45,11 +42,29 @@ sudo apt-get install python3-pip
 
 use this to parse a log file and generate a new one
 pip3 install pynmea2
-use this to print in real time gps with pyhton. Similar to cgps
-pip3 install gps
 
 python3
 import pynmea2
 msg = pynmea2.parse("$GPGGA,184353.07,1929.045,S,02410.506,E,1,04,2.6,100.00,M,-33.9,M,,0000*6D")
 msg
 
+In the video, I modified the script on my local machine (since its easier for me to use an IDE) then I copied it over to the Raspberry Pi via SCP. 
+https://linuxize.com/post/how-to-use-scp-command-to-securely-transfer-files/
+
+sample scp -
+scp file.txt remote_username@10.10.0.2:/remote/directory
+
+use this to print in real time gps with python and "gps" module. Similar to cgps
+pip3 install gps
+python3 library_gps.py
+
+Links/Guides I used -  
+
+https://maker.pro/raspberry-pi/tutorial/how-to-read-gps-data-with-python-on-a-raspberry-pi (sample scripts available at bottom of article)
+https://ozzmaker.com/berrygps-setup-guide-raspberry-pi/
+https://docs.novatel.com/oem7/Content/Logs/GPRMC.htm?tocpath=Commands%20%2526%20Logs%7CLogs%7CAll%20Logs%7CGNSS%20Logs%7C_____65
+https://gist.github.com/wolfg1969/4653340
+https://stackoverflow.com/questions/50435295/read-from-file-and-write-to-another-python/50435495
+https://gpsd.gitlab.io/gpsd/gpspipe.html
+https://www.raspberrypi.org/documentation/remote-access/ssh/
+https://linuxize.com/post/how-to-use-scp-command-to-securely-transfer-files/
