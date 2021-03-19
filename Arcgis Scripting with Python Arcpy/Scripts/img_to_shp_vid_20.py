@@ -26,16 +26,14 @@ def shape_creator():
     arcpy.AddField_management(out_shapefile, "timestamp", "TEXT", 9, "", "", "refcode", "NULLABLE", "REQUIRED")
     arcpy.AddField_management(out_shapefile, "img_path", "TEXT", 9, "", "", "refcode", "NULLABLE", "REQUIRED")
 
-    count = 0
+    for x in shp_list:
+        with arcpy.da.UpdateCursor(out_shapefile, ["timestamp", "img_path"]) as our_cursor:
+            for c in our_cursor:
 
-    with arcpy.da.UpdateCursor(out_shapefile, ["timestamp", "img_path"]) as our_cursor:
-        for c in our_cursor:
+                c[0] = x[3]
+                c[1] = x[4]
 
-            c[0] = shp_list[count][3]
-            c[1] = shp_list[count][2]
-            count +=1
-
-            our_cursor.updateRow(c)
+                our_cursor.updateRow(c)
 
 
 def convert_to_degrees(value):

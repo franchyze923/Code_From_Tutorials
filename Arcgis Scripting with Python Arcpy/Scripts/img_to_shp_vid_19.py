@@ -22,20 +22,6 @@ def shape_creator():
         ptGeoms.append(arcpy.PointGeometry(pt, spatial_ref))
 
     arcpy.CopyFeatures_management(ptGeoms, out_shapefile)
-    arcpy.AddXY_management(out_shapefile)
-    arcpy.AddField_management(out_shapefile, "timestamp", "TEXT", 9, "", "", "refcode", "NULLABLE", "REQUIRED")
-    arcpy.AddField_management(out_shapefile, "img_path", "TEXT", 9, "", "", "refcode", "NULLABLE", "REQUIRED")
-
-    count = 0
-
-    with arcpy.da.UpdateCursor(out_shapefile, ["timestamp", "img_path"]) as our_cursor:
-        for c in our_cursor:
-
-            c[0] = shp_list[count][3]
-            c[1] = shp_list[count][2]
-            count +=1
-
-            our_cursor.updateRow(c)
 
 
 def convert_to_degrees(value):
@@ -65,7 +51,6 @@ for image in img_contents:
     gps_all = {}
 
     try:
-        img_time = (exif['DateTime'])
         for key in exif['GPSInfo'].keys():
 
             decoded_value = ExifTags.GPSTAGS.get(key)
@@ -90,7 +75,7 @@ for image in img_contents:
         else:
             lat_in_degrees = convert_to_degrees(lat)
 
-        shp_list.append([long_in_degrees, lat_in_degrees, full_path, img_time])
+        shp_list.append([long_in_degrees, lat_in_degrees])
 
     except:
         print("This image has no GPS info in it")
